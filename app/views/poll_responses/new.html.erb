@@ -1,17 +1,9 @@
-<%
-=begin%>
-<%= simple_form_for([@poll, @poll_response]) do |f| %>
-<%= f.error_notification %>
-<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<% content_for :title, "Respond to Poll" %>
 
-<div class="form-inputs">
-  <p> Options are: </p>
-  <%= @poll_response.poll.options %>
-  <%= f.input :answer %>
-</div>
-<% end %>
-<%
-=end%>
+<h1>Respond to Poll</h1>
 
+<p>You are responding to the poll: <strong><%= @poll.title %></strong></p>
+
+<p style="color: green"><%= notice %></p>
 
 <%= render 'form' %>
