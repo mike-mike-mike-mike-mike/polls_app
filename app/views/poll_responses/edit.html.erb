@@ -1,0 +1,12 @@
+<% content_for :title, "Editing poll response" %>
+
+<h1>Editing poll response</h1>
+
+<%= render "form", poll_response: @poll_response %>
+
+<br>
+
+<div>
+  <%= link_to "Show this poll response", @poll_response %> |
+  <%= link_to "Back to poll responses", poll_poll_responses_path %>
+</div>

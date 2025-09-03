@@ -1,0 +1,1893 @@
+# Note:
+#
+# Please keep rules alphabetized within their sections (Style, Metrics, etc)
+# Please keep sections alphabetized and separated from other sections
+
+require: rubocop-rails
+
+AllCops:
+  NewCops: disable
+  Exclude:
+    # Machine-generated code is exempt
+    - 'config/initializers/simple_form*.rb'
+    - 'db/migrate/*.acts_as_taggable_on_engine.rb'
+    - 'db/schema.rb'
+    - 'db/tmp_schema.rb'
+    # Various temporary files
+    - '**/node_modules/**/*'
+    - '**/sprockets_node_modules/**/*'
+    - 'apps/*/tmp/**/*'
+    - 'vendor/**/*'
+    - 'bin/*'
+    - '.git/**/*'
+  TargetRubyVersion: 2.7
+  SuggestExtensions: false
+  DisplayStyleGuide: true
+
+Bundler/DuplicatedGem:
+  Enabled: true
+  StyleGuide: "#bundlerduplicatedgem"
+Bundler/GemComment:
+  Enabled: false
+  StyleGuide: "#bundlergemcomment"
+Bundler/GemFilename:
+  Enabled: true
+  StyleGuide: "#bundlergemfilename"
+Bundler/GemVersion:
+  Enabled: false
+  StyleGuide: "#bundlergemversion"
+Bundler/InsecureProtocolSource:
+  Enabled: true
+  StyleGuide: "#bundlerinsecureprotocolsource"
+Bundler/OrderedGems:
+  Enabled: true
+  StyleGuide: "#bundlerorderedgems"
+Gemspec/DependencyVersion:
+  Enabled: false
+  StyleGuide: "#gemspecdependencyversion"
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: false
+  StyleGuide: "#gemspecdeprecatedattributeassignment"
+Gemspec/DuplicatedAssignment:
+  Enabled: true
+  StyleGuide: "#gemspecduplicatedassignment"
+Gemspec/OrderedDependencies:
+  Enabled: true
+  StyleGuide: "#gemspecordereddependencies"
+Gemspec/RequireMFA:
+  Enabled: false
+  StyleGuide: "#gemspecrequiremfa"
+Gemspec/RequiredRubyVersion:
+  Enabled: true
+  StyleGuide: "#gemspecrequiredrubyversion"
+Gemspec/RubyVersionGlobalsUsage:
+  Enabled: true
+  StyleGuide: "#gemspecrubyversionglobalsusage"
+Layout/AccessModifierIndentation:
+  Enabled: true
+  StyleGuide: "#layoutaccessmodifierindentation"
+Layout/ArgumentAlignment:
+  Enabled: true
+  StyleGuide: "#layoutargumentalignment"
+Layout/ArrayAlignment:
+  Enabled: true
+  StyleGuide: "#layoutarrayalignment"
+Layout/AssignmentIndentation:
+  Enabled: true
+  StyleGuide: "#layoutassignmentindentation"
+Layout/BeginEndAlignment:
+  Enabled: true
+  StyleGuide: "#layoutbeginendalignment"
+Layout/BlockAlignment:
+  Enabled: true
+  StyleGuide: "#layoutblockalignment"
+Layout/BlockEndNewline:
+  Enabled: true
+  StyleGuide: "#layoutblockendnewline"
+Layout/CaseIndentation:
+  Enabled: true
+  StyleGuide: "#layoutcaseindentation"
+Layout/ClassStructure:
+  Enabled: false
+  StyleGuide: "#layoutclassstructure"
+Layout/ClosingHeredocIndentation:
+  Enabled: true
+  StyleGuide: "#layoutclosingheredocindentation"
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+  StyleGuide: "#layoutclosingparenthesisindentation"
+Layout/CommentIndentation:
+  Enabled: true
+  StyleGuide: "#layoutcommentindentation"
+Layout/ConditionPosition:
+  Enabled: true
+  StyleGuide: "#layoutconditionposition"
+Layout/DefEndAlignment:
+  Enabled: true
+  StyleGuide: "#layoutdefendalignment"
+Layout/DotPosition:
+  Enabled: true
+  StyleGuide: "#layoutdotposition"
+Layout/ElseAlignment:
+  Enabled: true
+  StyleGuide: "#layoutelsealignment"
+Layout/EmptyComment:
+  Enabled: true
+  StyleGuide: "#layoutemptycomment"
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+  StyleGuide: "#layoutemptylineafterguardclause"
+Layout/EmptyLineAfterMagicComment:
+  Exclude:
+  - db/migrate/*.rb
+  StyleGuide: "#layoutemptylineaftermagiccomment"
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: false
+  StyleGuide: "#layoutemptylineaftermultilinecondition"
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+  StyleGuide: "#layoutemptylinebetweendefs"
+Layout/EmptyLines:
+  Enabled: true
+  StyleGuide: "#layoutemptylines"
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundaccessmodifier"
+Layout/EmptyLinesAroundArguments:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundarguments"
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundattributeaccessor"
+Layout/EmptyLinesAroundBeginBody:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundbeginbody"
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundblockbody"
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundclassbody"
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundexceptionhandlingkeywords"
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+  StyleGuide: "#layoutemptylinesaroundmethodbody"
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+  StyleGuide: "#layoutemptylinesaroundmodulebody"
+Layout/EndAlignment:
+  Enabled: true
+  StyleGuide: "#layoutendalignment"
+Layout/EndOfLine:
+  Enabled: true
+  StyleGuide: "#layoutendofline"
+Layout/ExtraSpacing:
+  Enabled: true
+  StyleGuide: "#layoutextraspacing"
+Layout/FirstArgumentIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+  StyleGuide: "#layoutfirstargumentindentation"
+Layout/FirstArrayElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+  StyleGuide: "#layoutfirstarrayelementindentation"
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+  StyleGuide: "#layoutfirstarrayelementlinebreak"
+Layout/FirstHashElementIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+  StyleGuide: "#layoutfirsthashelementindentation"
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+  StyleGuide: "#layoutfirsthashelementlinebreak"
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: false
+  StyleGuide: "#layoutfirstmethodargumentlinebreak"
+Layout/FirstMethodParameterLineBreak:
+  Enabled: false
+  StyleGuide: "#layoutfirstmethodparameterlinebreak"
+Layout/FirstParameterIndentation:
+  Enabled: true
+  EnforcedStyle: consistent
+  StyleGuide: "#layoutfirstparameterindentation"
+Layout/HashAlignment:
+  Enabled: true
+  EnforcedColonStyle:
+  - key
+  - table
+  EnforcedHashRocketStyle:
+  - key
+  - table
+  StyleGuide: "#layouthashalignment"
+Layout/HeredocArgumentClosingParenthesis:
+  Enabled: false
+  StyleGuide: "#layoutheredocargumentclosingparenthesis"
+Layout/HeredocIndentation:
+  Enabled: true
+  StyleGuide: "#layoutheredocindentation"
+Layout/IndentationConsistency:
+  Enabled: true
+  StyleGuide: "#layoutindentationconsistency"
+Layout/IndentationStyle:
+  Enabled: true
+  StyleGuide: "#layoutindentationstyle"
+Layout/IndentationWidth:
+  Enabled: true
+  StyleGuide: "#layoutindentationwidth"
+Layout/InitialIndentation:
+  Enabled: true
+  StyleGuide: "#layoutinitialindentation"
+Layout/LeadingCommentSpace:
+  Enabled: true
+  StyleGuide: "#layoutleadingcommentspace"
+Layout/LeadingEmptyLines:
+  Enabled: true
+  StyleGuide: "#layoutleadingemptylines"
+Layout/LineContinuationLeadingSpace:
+  Enabled: false
+  StyleGuide: "#layoutlinecontinuationleadingspace"
+Layout/LineContinuationSpacing:
+  Enabled: true
+  StyleGuide: "#layoutlinecontinuationspacing"
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: false
+  StyleGuide: "#layoutlineendstringconcatenationindentation"
+Layout/LineLength:
+  Enabled: false
+  StyleGuide: "#layoutlinelength"
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+  StyleGuide: "#layoutmultilinearraybracelayout"
+Layout/MultilineArrayLineBreaks:
+  Enabled: false
+  StyleGuide: "#layoutmultilinearraylinebreaks"
+Layout/MultilineAssignmentLayout:
+  Enabled: false
+  StyleGuide: "#layoutmultilineassignmentlayout"
+Layout/MultilineBlockLayout:
+  Enabled: true
+  StyleGuide: "#layoutmultilineblocklayout"
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+  StyleGuide: "#layoutmultilinehashbracelayout"
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: false
+  StyleGuide: "#layoutmultilinehashkeylinebreaks"
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: false
+  StyleGuide: "#layoutmultilinemethodargumentlinebreaks"
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  StyleGuide: "#layoutmultilinemethodcallbracelayout"
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+  StyleGuide: "#layoutmultilinemethodcallindentation"
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+  StyleGuide: "#layoutmultilinemethoddefinitionbracelayout"
+Layout/MultilineMethodParameterLineBreaks:
+  Enabled: false
+  StyleGuide: "#layoutmultilinemethodparameterlinebreaks"
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  StyleGuide: "#layoutmultilineoperationindentation"
+Layout/ParameterAlignment:
+  Enabled: true
+  StyleGuide: "#layoutparameteralignment"
+Layout/RedundantLineBreak:
+  Enabled: false
+  StyleGuide: "#layoutredundantlinebreak"
+Layout/RescueEnsureAlignment:
+  Enabled: true
+  StyleGuide: "#layoutrescueensurealignment"
+Layout/SingleLineBlockChain:
+  Enabled: false
+  StyleGuide: "#layoutsinglelineblockchain"
+Layout/SpaceAfterColon:
+  Enabled: true
+  StyleGuide: "#layoutspaceaftercolon"
+Layout/SpaceAfterComma:
+  Enabled: true
+  StyleGuide: "#layoutspaceaftercomma"
+Layout/SpaceAfterMethodName:
+  Enabled: true
+  StyleGuide: "#layoutspaceaftermethodname"
+Layout/SpaceAfterNot:
+  Enabled: true
+  StyleGuide: "#layoutspaceafternot"
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+  StyleGuide: "#layoutspaceaftersemicolon"
+Layout/SpaceAroundBlockParameters:
+  Enabled: true
+  StyleGuide: "#layoutspacearoundblockparameters"
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+  StyleGuide: "#layoutspacearoundequalsinparameterdefault"
+Layout/SpaceAroundKeyword:
+  Enabled: true
+  StyleGuide: "#layoutspacearoundkeyword"
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+  StyleGuide: "#layoutspacearoundmethodcalloperator"
+Layout/SpaceAroundOperators:
+  Enabled: true
+  StyleGuide: "#layoutspacearoundoperators"
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+  StyleGuide: "#layoutspacebeforeblockbraces"
+Layout/SpaceBeforeBrackets:
+  Enabled: false
+  StyleGuide: "#layoutspacebeforebrackets"
+Layout/SpaceBeforeComma:
+  Enabled: true
+  StyleGuide: "#layoutspacebeforecomma"
+Layout/SpaceBeforeComment:
+  Enabled: true
+  StyleGuide: "#layoutspacebeforecomment"
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+  StyleGuide: "#layoutspacebeforefirstarg"
+Layout/SpaceBeforeSemicolon:
+  Enabled: true
+  StyleGuide: "#layoutspacebeforesemicolon"
+Layout/SpaceInLambdaLiteral:
+  Enabled: true
+  StyleGuide: "#layoutspaceinlambdaliteral"
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidearrayliteralbrackets"
+Layout/SpaceInsideArrayPercentLiteral:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidearraypercentliteral"
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsideblockbraces"
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidehashliteralbraces"
+Layout/SpaceInsideParens:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsideparens"
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidepercentliteraldelimiters"
+Layout/SpaceInsideRangeLiteral:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsiderangeliteral"
+Layout/SpaceInsideReferenceBrackets:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidereferencebrackets"
+Layout/SpaceInsideStringInterpolation:
+  Enabled: true
+  StyleGuide: "#layoutspaceinsidestringinterpolation"
+Layout/TrailingEmptyLines:
+  Enabled: true
+  StyleGuide: "#layouttrailingemptylines"
+Layout/TrailingWhitespace:
+  Enabled: true
+  AllowInHeredoc: true
+  StyleGuide: "#layouttrailingwhitespace"
+Lint/AmbiguousAssignment:
+  Enabled: false
+  StyleGuide: "#lintambiguousassignment"
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+  StyleGuide: "#lintambiguousblockassociation"
+Lint/AmbiguousOperator:
+  Enabled: true
+  StyleGuide: "#lintambiguousoperator"
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+  StyleGuide: "#lintambiguousoperatorprecedence"
+Lint/AmbiguousRange:
+  Enabled: false
+  StyleGuide: "#lintambiguousrange"
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+  StyleGuide: "#lintambiguousregexpliteral"
+Lint/AssignmentInCondition:
+  Enabled: true
+  StyleGuide: "#lintassignmentincondition"
+Lint/BigDecimalNew:
+  Enabled: true
+  StyleGuide: "#lintbigdecimalnew"
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+  StyleGuide: "#lintbinaryoperatorwithidenticaloperands"
+Lint/BooleanSymbol:
+  Enabled: true
+  StyleGuide: "#lintbooleansymbol"
+Lint/CircularArgumentReference:
+  Enabled: true
+  StyleGuide: "#lintcircularargumentreference"
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+  StyleGuide: "#lintconstantdefinitioninblock"
+Lint/ConstantOverwrittenInRescue:
+  Enabled: false
+  StyleGuide: "#lintconstantoverwritteninrescue"
+Lint/ConstantResolution:
+  Enabled: false
+  StyleGuide: "#lintconstantresolution"
+Lint/Debugger:
+  Enabled: true
+  StyleGuide: "#lintdebugger"
+Lint/DeprecatedClassMethods:
+  Enabled: true
+  StyleGuide: "#lintdeprecatedclassmethods"
+Lint/DeprecatedConstants:
+  Enabled: false
+  StyleGuide: "#lintdeprecatedconstants"
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+  StyleGuide: "#lintdeprecatedopensslconstant"
+Lint/DisjunctiveAssignmentInConstructor:
+  Enabled: true
+  StyleGuide: "#lintdisjunctiveassignmentinconstructor"
+Lint/DuplicateBranch:
+  Enabled: false
+  StyleGuide: "#lintduplicatebranch"
+Lint/DuplicateCaseCondition:
+  Enabled: true
+  StyleGuide: "#lintduplicatecasecondition"
+Lint/DuplicateElsifCondition:
+  Enabled: true
+  StyleGuide: "#lintduplicateelsifcondition"
+Lint/DuplicateHashKey:
+  Enabled: true
+  StyleGuide: "#lintduplicatehashkey"
+Lint/DuplicateMethods:
+  Enabled: true
+  StyleGuide: "#lintduplicatemethods"
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: false
+  StyleGuide: "#lintduplicateregexpcharacterclasselement"
+Lint/DuplicateRequire:
+  Enabled: true
+  StyleGuide: "#lintduplicaterequire"
+Lint/DuplicateRescueException:
+  Enabled: true
+  StyleGuide: "#lintduplicaterescueexception"
+Lint/EachWithObjectArgument:
+  Enabled: true
+  StyleGuide: "#linteachwithobjectargument"
+Lint/ElseLayout:
+  Enabled: true
+  StyleGuide: "#lintelselayout"
+Lint/EmptyBlock:
+  Enabled: false
+  StyleGuide: "#lintemptyblock"
+Lint/EmptyClass:
+  Enabled: false
+  StyleGuide: "#lintemptyclass"
+Lint/EmptyConditionalBody:
+  Enabled: true
+  StyleGuide: "#lintemptyconditionalbody"
+Lint/EmptyEnsure:
+  Enabled: true
+  StyleGuide: "#lintemptyensure"
+Lint/EmptyExpression:
+  Enabled: true
+  StyleGuide: "#lintemptyexpression"
+Lint/EmptyFile:
+  Enabled: true
+  StyleGuide: "#lintemptyfile"
+Lint/EmptyInPattern:
+  Enabled: false
+  StyleGuide: "#lintemptyinpattern"
+Lint/EmptyInterpolation:
+  Enabled: true
+  StyleGuide: "#lintemptyinterpolation"
+Lint/EmptyWhen:
+  Enabled: true
+  StyleGuide: "#lintemptywhen"
+Lint/EnsureReturn:
+  Enabled: true
+  StyleGuide: "#lintensurereturn"
+Lint/ErbNewArguments:
+  Enabled: true
+  StyleGuide: "#linterbnewarguments"
+Lint/FlipFlop:
+  Enabled: true
+  StyleGuide: "#lintflipflop"
+Lint/FloatComparison:
+  Enabled: true
+  StyleGuide: "#lintfloatcomparison"
+Lint/FloatOutOfRange:
+  Enabled: true
+  StyleGuide: "#lintfloatoutofrange"
+Lint/FormatParameterMismatch:
+  Enabled: true
+  StyleGuide: "#lintformatparametermismatch"
+Lint/HashCompareByIdentity:
+  Enabled: true
+  StyleGuide: "#linthashcomparebyidentity"
+Lint/HeredocMethodCallPosition:
+  Enabled: false
+  StyleGuide: "#lintheredocmethodcallposition"
+Lint/IdentityComparison:
+  Enabled: true
+  StyleGuide: "#lintidentitycomparison"
+Lint/ImplicitStringConcatenation:
+  Enabled: true
+  StyleGuide: "#lintimplicitstringconcatenation"
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Enabled: false
+  StyleGuide: "#lintincompatibleioselectwithfiberscheduler"
+Lint/IneffectiveAccessModifier:
+  Enabled: true
+  StyleGuide: "#lintineffectiveaccessmodifier"
+Lint/InheritException:
+  Enabled: true
+  StyleGuide: "#lintinheritexception"
+Lint/InterpolationCheck:
+  Enabled: true
+  StyleGuide: "#lintinterpolationcheck"
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: false
+  StyleGuide: "#lintlambdawithoutliteralblock"
+Lint/LiteralAsCondition:
+  Enabled: true
+  StyleGuide: "#lintliteralascondition"
+Lint/LiteralInInterpolation:
+  Enabled: true
+  StyleGuide: "#lintliteralininterpolation"
+Lint/Loop:
+  Enabled: true
+  StyleGuide: "#lintloop"
+Lint/MissingCopEnableDirective:
+  Enabled: true
+  StyleGuide: "#lintmissingcopenabledirective"
+Lint/MissingSuper:
+  Enabled: true
+  StyleGuide: "#lintmissingsuper"
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+  StyleGuide: "#lintmixedregexpcapturetypes"
+Lint/MultipleComparison:
+  Enabled: true
+  StyleGuide: "#lintmultiplecomparison"
+Lint/NestedMethodDefinition:
+  Enabled: true
+  StyleGuide: "#lintnestedmethoddefinition"
+Lint/NestedPercentLiteral:
+  Enabled: true
+  StyleGuide: "#lintnestedpercentliteral"
+Lint/NextWithoutAccumulator:
+  Enabled: true
+  StyleGuide: "#lintnextwithoutaccumulator"
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: false
+  StyleGuide: "#lintnoreturninbeginendblocks"
+Lint/NonAtomicFileOperation:
+  Enabled: false
+  StyleGuide: "#lintnonatomicfileoperation"
+Lint/NonDeterministicRequireOrder:
+  Enabled: true
+  StyleGuide: "#lintnondeterministicrequireorder"
+Lint/NonLocalExitFromIterator:
+  Enabled: true
+  StyleGuide: "#lintnonlocalexitfromiterator"
+Lint/NumberConversion:
+  Enabled: false
+  StyleGuide: "#lintnumberconversion"
+Lint/NumberedParameterAssignment:
+  Enabled: false
+  StyleGuide: "#lintnumberedparameterassignment"
+Lint/OrAssignmentToConstant:
+  Enabled: false
+  StyleGuide: "#lintorassignmenttoconstant"
+Lint/OrderedMagicComments:
+  Enabled: true
+  StyleGuide: "#lintorderedmagiccomments"
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+  StyleGuide: "#lintoutofrangeregexpref"
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+  StyleGuide: "#lintparenthesesasgroupedexpression"
+Lint/PercentStringArray:
+  Enabled: true
+  StyleGuide: "#lintpercentstringarray"
+Lint/PercentSymbolArray:
+  Enabled: true
+  StyleGuide: "#lintpercentsymbolarray"
+Lint/RaiseException:
+  Enabled: true
+  StyleGuide: "#lintraiseexception"
+Lint/RandOne:
+  Enabled: true
+  StyleGuide: "#lintrandone"
+Lint/RedundantCopDisableDirective:
+  Enabled: true
+  StyleGuide: "#lintredundantcopdisabledirective"
+Lint/RedundantCopEnableDirective:
+  Enabled: true
+  StyleGuide: "#lintredundantcopenabledirective"
+Lint/RedundantDirGlobSort:
+  Enabled: false
+  StyleGuide: "#lintredundantdirglobsort"
+Lint/RedundantRequireStatement:
+  Enabled: true
+  StyleGuide: "#lintredundantrequirestatement"
+Lint/RedundantSafeNavigation:
+  Enabled: true
+  StyleGuide: "#lintredundantsafenavigation"
+Lint/RedundantSplatExpansion:
+  Enabled: true
+  StyleGuide: "#lintredundantsplatexpansion"
+Lint/RedundantStringCoercion:
+  Enabled: true
+  StyleGuide: "#lintredundantstringcoercion"
+Lint/RedundantWithIndex:
+  Enabled: true
+  StyleGuide: "#lintredundantwithindex"
+Lint/RedundantWithObject:
+  Enabled: true
+  StyleGuide: "#lintredundantwithobject"
+Lint/RefinementImportMethods:
+  Enabled: false
+  StyleGuide: "#lintrefinementimportmethods"
+Lint/RegexpAsCondition:
+  Enabled: true
+  StyleGuide: "#lintregexpascondition"
+Lint/RequireParentheses:
+  Enabled: true
+  StyleGuide: "#lintrequireparentheses"
+Lint/RequireRangeParentheses:
+  Enabled: false
+  StyleGuide: "#lintrequirerangeparentheses"
+Lint/RequireRelativeSelfPath:
+  Enabled: false
+  StyleGuide: "#lintrequirerelativeselfpath"
+Lint/RescueException:
+  Enabled: true
+  StyleGuide: "#lintrescueexception"
+Lint/RescueType:
+  Enabled: true
+  StyleGuide: "#lintrescuetype"
+Lint/ReturnInVoidContext:
+  Enabled: true
+  StyleGuide: "#lintreturninvoidcontext"
+Lint/SafeNavigationChain:
+  Enabled: true
+  StyleGuide: "#lintsafenavigationchain"
+Lint/SafeNavigationConsistency:
+  Enabled: true
+  StyleGuide: "#lintsafenavigationconsistency"
+Lint/SafeNavigationWithEmpty:
+  Enabled: true
+  StyleGuide: "#lintsafenavigationwithempty"
+Lint/ScriptPermission:
+  Enabled: true
+  StyleGuide: "#lintscriptpermission"
+Lint/SelfAssignment:
+  Enabled: true
+  StyleGuide: "#lintselfassignment"
+Lint/SendWithMixinArgument:
+  Enabled: true
+  StyleGuide: "#lintsendwithmixinargument"
+Lint/ShadowedArgument:
+  Enabled: true
+  StyleGuide: "#lintshadowedargument"
+Lint/ShadowedException:
+  Enabled: true
+  StyleGuide: "#lintshadowedexception"
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+  StyleGuide: "#lintshadowingouterlocalvariable"
+Lint/StructNewOverride:
+  Enabled: true
+  StyleGuide: "#lintstructnewoverride"
+Lint/SuppressedException:
+  Enabled: true
+  StyleGuide: "#lintsuppressedexception"
+Lint/SymbolConversion:
+  Enabled: false
+  StyleGuide: "#lintsymbolconversion"
+Lint/ToEnumArguments:
+  Enabled: false
+  StyleGuide: "#linttoenumarguments"
+Lint/ToJSON:
+  Enabled: true
+  StyleGuide: "#linttojson"
+Lint/TopLevelReturnWithArgument:
+  Enabled: true
+  StyleGuide: "#linttoplevelreturnwithargument"
+Lint/TrailingCommaInAttributeDeclaration:
+  Enabled: false
+  StyleGuide: "#linttrailingcommainattributedeclaration"
+Lint/TripleQuotes:
+  Enabled: false
+  StyleGuide: "#linttriplequotes"
+Lint/UnderscorePrefixedVariableName:
+  Enabled: true
+  StyleGuide: "#lintunderscoreprefixedvariablename"
+Lint/UnexpectedBlockArity:
+  Enabled: true
+  StyleGuide: "#lintunexpectedblockarity"
+Lint/UnifiedInteger:
+  Enabled: true
+  StyleGuide: "#lintunifiedinteger"
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: false
+  StyleGuide: "#lintunmodifiedreduceaccumulator"
+Lint/UnreachableCode:
+  Enabled: true
+  StyleGuide: "#lintunreachablecode"
+Lint/UnreachableLoop:
+  Enabled: true
+  StyleGuide: "#lintunreachableloop"
+Lint/UnusedBlockArgument:
+  Enabled: true
+  StyleGuide: "#lintunusedblockargument"
+Lint/UnusedMethodArgument:
+  Enabled: true
+  StyleGuide: "#lintunusedmethodargument"
+Lint/UriEscapeUnescape:
+  Enabled: true
+  StyleGuide: "#linturiescapeunescape"
+Lint/UriRegexp:
+  Enabled: true
+  StyleGuide: "#linturiregexp"
+Lint/UselessAccessModifier:
+  Enabled: true
+  StyleGuide: "#lintuselessaccessmodifier"
+Lint/UselessAssignment:
+  Enabled: true
+  StyleGuide: "#lintuselessassignment"
+Lint/UselessElseWithoutRescue:
+  Enabled: true
+  StyleGuide: "#lintuselesselsewithoutrescue"
+Lint/UselessMethodDefinition:
+  Enabled: true
+  StyleGuide: "#lintuselessmethoddefinition"
+Lint/UselessRuby2Keywords:
+  Enabled: false
+  StyleGuide: "#lintuselessruby2keywords"
+Lint/UselessSetterCall:
+  Enabled: true
+  StyleGuide: "#lintuselesssettercall"
+Lint/UselessTimes:
+  Enabled: true
+  StyleGuide: "#lintuselesstimes"
+Lint/Void:
+  Enabled: true
+  StyleGuide: "#lintvoid"
+Metrics/AbcSize:
+  Enabled: false
+  StyleGuide: "#metricsabcsize"
+Metrics/BlockLength:
+  Enabled: false
+  StyleGuide: "#metricsblocklength"
+Metrics/BlockNesting:
+  Enabled: true
+  StyleGuide: "#metricsblocknesting"
+Metrics/ClassLength:
+  Enabled: false
+  StyleGuide: "#metricsclasslength"
+Metrics/CyclomaticComplexity:
+  Enabled: false
+  StyleGuide: "#metricscyclomaticcomplexity"
+Metrics/MethodLength:
+  Enabled: false
+  StyleGuide: "#metricsmethodlength"
+Metrics/ModuleLength:
+  Enabled: false
+  StyleGuide: "#metricsmodulelength"
+Metrics/ParameterLists:
+  Enabled: false
+  StyleGuide: "#metricsparameterlists"
+Metrics/PerceivedComplexity:
+  Enabled: false
+  StyleGuide: "#metricsperceivedcomplexity"
+Migration/DepartmentName:
+  Enabled: true
+  StyleGuide: "#migrationdepartmentname"
+Naming/AccessorMethodName:
+  Enabled: false
+  StyleGuide: "#namingaccessormethodname"
+Naming/AsciiIdentifiers:
+  Enabled: true
+  StyleGuide: "#namingasciiidentifiers"
+Naming/BinaryOperatorParameterName:
+  Enabled: true
+  StyleGuide: "#namingbinaryoperatorparametername"
+Naming/BlockForwarding:
+  Enabled: false
+  StyleGuide: "#namingblockforwarding"
+Naming/BlockParameterName:
+  Enabled: true
+  StyleGuide: "#namingblockparametername"
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+  StyleGuide: "#namingclassandmodulecamelcase"
+Naming/ConstantName:
+  Enabled: true
+  StyleGuide: "#namingconstantname"
+Naming/FileName:
+  Enabled: true
+  StyleGuide: "#namingfilename"
+Naming/HeredocDelimiterCase:
+  Enabled: true
+  StyleGuide: "#namingheredocdelimitercase"
+Naming/HeredocDelimiterNaming:
+  Enabled: true
+  StyleGuide: "#namingheredocdelimiternaming"
+Naming/InclusiveLanguage:
+  Enabled: false
+  StyleGuide: "#naminginclusivelanguage"
+Naming/MemoizedInstanceVariableName:
+  Enabled: true
+  StyleGuide: "#namingmemoizedinstancevariablename"
+Naming/MethodName:
+  Enabled: true
+  StyleGuide: "#namingmethodname"
+Naming/MethodParameterName:
+  Enabled: true
+  StyleGuide: "#namingmethodparametername"
+Naming/PredicateName:
+  Enabled: false
+  StyleGuide: "#namingpredicatename"
+Naming/RescuedExceptionsVariableName:
+  Enabled: true
+  StyleGuide: "#namingrescuedexceptionsvariablename"
+Naming/VariableName:
+  Enabled: true
+  StyleGuide: "#namingvariablename"
+Naming/VariableNumber:
+  Enabled: false
+  StyleGuide: "#namingvariablenumber"
+Rails/ActionControllerTestCase:
+  Enabled: false
+  StyleGuide: "#railsactioncontrollertestcase"
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: false
+  StyleGuide: "#railsactiverecordcallbacksorder"
+Rails/ActionFilter:
+  Enabled: true
+  StyleGuide: "#railsactionfilter"
+Rails/ActiveRecordAliases:
+  Enabled: true
+  StyleGuide: "#railsactiverecordaliases"
+Rails/ActiveRecordOverride:
+  Enabled: true
+  StyleGuide: "#railsactiverecordoverride"
+Rails/ActiveSupportAliases:
+  Enabled: true
+  StyleGuide: "#railsactivesupportaliases"
+Rails/AddColumnIndex:
+  Enabled: false
+  StyleGuide: "#railsaddcolumnindex"
+Rails/AfterCommitOverride:
+  Enabled: false
+  StyleGuide: "#railsaftercommitoverride"
+Rails/ApplicationController:
+  Enabled: true
+  StyleGuide: "#railsapplicationcontroller"
+Rails/ApplicationJob:
+  Enabled: false
+  StyleGuide: "#railsapplicationjob"
+Rails/ApplicationMailer:
+  Enabled: true
+  StyleGuide: "#railsapplicationmailer"
+Rails/ApplicationRecord:
+  Enabled: true
+  StyleGuide: "#railsapplicationrecord"
+Rails/ArelStar:
+  Enabled: true
+  StyleGuide: "#railsarelstar"
+Rails/AssertNot:
+  Enabled: true
+  StyleGuide: "#railsassertnot"
+Rails/AttributeDefaultBlockValue:
+  Enabled: false
+  StyleGuide: "#railsattributedefaultblockvalue"
+Rails/BelongsTo:
+  Enabled: true
+  StyleGuide: "#railsbelongsto"
+Rails/Blank:
+  Enabled: true
+  StyleGuide: "#railsblank"
+Rails/BulkChangeTable:
+  Enabled: true
+  StyleGuide: "#railsbulkchangetable"
+Rails/CompactBlank:
+  Enabled: false
+  StyleGuide: "#railscompactblank"
+Rails/ContentTag:
+  Enabled: true
+  StyleGuide: "#railscontenttag"
+Rails/CreateTableWithTimestamps:
+  Enabled: true
+  StyleGuide: "#railscreatetablewithtimestamps"
+Rails/Date:
+  Enabled: true
+  StyleGuide: "#railsdate"
+Rails/DefaultScope:
+  Enabled: false
+  StyleGuide: "#railsdefaultscope"
+Rails/Delegate:
+  Enabled: true
+  StyleGuide: "#railsdelegate"
+Rails/DelegateAllowBlank:
+  Enabled: true
+  StyleGuide: "#railsdelegateallowblank"
+Rails/DeprecatedActiveModelErrorsMethods:
+  Enabled: false
+  StyleGuide: "#railsdeprecatedactivemodelerrorsmethods"
+Rails/DotSeparatedKeys:
+  Enabled: false
+  StyleGuide: "#railsdotseparatedkeys"
+Rails/DuplicateAssociation:
+  Enabled: false
+  StyleGuide: "#railsduplicateassociation"
+Rails/DuplicateScope:
+  Enabled: false
+  StyleGuide: "#railsduplicatescope"
+Rails/DurationArithmetic:
+  Enabled: false
+  StyleGuide: "#railsdurationarithmetic"
+Rails/DynamicFindBy:
+  Enabled: false
+  StyleGuide: "#railsdynamicfindby"
+Rails/EagerEvaluationLogMessage:
+  Enabled: false
+  StyleGuide: "#railseagerevaluationlogmessage"
+Rails/EnumHash:
+  Enabled: true
+  StyleGuide: "#railsenumhash"
+Rails/EnumUniqueness:
+  Enabled: true
+  StyleGuide: "#railsenumuniqueness"
+Rails/EnvironmentComparison:
+  Enabled: true
+  StyleGuide: "#railsenvironmentcomparison"
+Rails/EnvironmentVariableAccess:
+  Enabled: false
+  StyleGuide: "#railsenvironmentvariableaccess"
+Rails/Exit:
+  Enabled: true
+  StyleGuide: "#railsexit"
+Rails/ExpandedDateRange:
+  Enabled: false
+  StyleGuide: "#railsexpandeddaterange"
+Rails/FilePath:
+  Enabled: true
+  StyleGuide: "#railsfilepath"
+Rails/FindBy:
+  Enabled: true
+  StyleGuide: "#railsfindby"
+Rails/FindById:
+  Enabled: false
+  StyleGuide: "#railsfindbyid"
+Rails/FindEach:
+  Enabled: true
+  StyleGuide: "#railsfindeach"
+Rails/HasAndBelongsToMany:
+  Enabled: true
+  StyleGuide: "#railshasandbelongstomany"
+Rails/HasManyOrHasOneDependent:
+  Enabled: true
+  StyleGuide: "#railshasmanyorhasonedependent"
+Rails/HelperInstanceVariable:
+  Enabled: true
+  StyleGuide: "#railshelperinstancevariable"
+Rails/HttpPositionalArguments:
+  Enabled: true
+  StyleGuide: "#railshttppositionalarguments"
+Rails/HttpStatus:
+  Enabled: true
+  StyleGuide: "#railshttpstatus"
+Rails/I18nLazyLookup:
+  Enabled: false
+  StyleGuide: "#railsi18nlazylookup"
+Rails/I18nLocaleAssignment:
+  Enabled: false
+  StyleGuide: "#railsi18nlocaleassignment"
+Rails/I18nLocaleTexts:
+  Enabled: false
+  StyleGuide: "#railsi18nlocaletexts"
+Rails/IgnoredSkipActionFilterOption:
+  Enabled: true
+  StyleGuide: "#railsignoredskipactionfilteroption"
+Rails/IndexBy:
+  Enabled: true
+  StyleGuide: "#railsindexby"
+Rails/IndexWith:
+  Enabled: true
+  StyleGuide: "#railsindexwith"
+Rails/Inquiry:
+  Enabled: false
+  StyleGuide: "#railsinquiry"
+Rails/InverseOf:
+  Enabled: true
+  StyleGuide: "#railsinverseof"
+Rails/LexicallyScopedActionFilter:
+  Enabled: true
+  StyleGuide: "#railslexicallyscopedactionfilter"
+Rails/LinkToBlank:
+  Enabled: true
+  StyleGuide: "#railslinktoblank"
+Rails/MailerName:
+  Enabled: false
+  StyleGuide: "#railsmailername"
+Rails/MatchRoute:
+  Enabled: false
+  StyleGuide: "#railsmatchroute"
+Rails/MigrationClassName:
+  Enabled: false
+  StyleGuide: "#railsmigrationclassname"
+Rails/NegateInclude:
+  Enabled: false
+  StyleGuide: "#railsnegateinclude"
+Rails/NotNullColumn:
+  Enabled: true
+  StyleGuide: "#railsnotnullcolumn"
+Rails/OrderById:
+  Enabled: false
+  StyleGuide: "#railsorderbyid"
+Rails/Output:
+  Enabled: true
+  StyleGuide: "#railsoutput"
+Rails/OutputSafety:
+  Enabled: false
+  StyleGuide: "#railsoutputsafety"
+Rails/Pick:
+  Enabled: true
+  StyleGuide: "#railspick"
+Rails/Pluck:
+  Enabled: false
+  StyleGuide: "#railspluck"
+Rails/PluckId:
+  Enabled: false
+  StyleGuide: "#railspluckid"
+Rails/PluckInWhere:
+  Enabled: false
+  StyleGuide: "#railspluckinwhere"
+Rails/PluralizationGrammar:
+  Enabled: true
+  StyleGuide: "#railspluralizationgrammar"
+Rails/Presence:
+  Enabled: true
+  StyleGuide: "#railspresence"
+Rails/Present:
+  Enabled: true
+  StyleGuide: "#railspresent"
+Rails/RakeEnvironment:
+  Enabled: true
+  StyleGuide: "#railsrakeenvironment"
+Rails/ReadWriteAttribute:
+  Enabled: true
+  StyleGuide: "#railsreadwriteattribute"
+Rails/RedundantAllowNil:
+  Enabled: true
+  StyleGuide: "#railsredundantallownil"
+Rails/RedundantForeignKey:
+  Enabled: true
+  StyleGuide: "#railsredundantforeignkey"
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: false
+  StyleGuide: "#railsredundantpresencevalidationonbelongsto"
+Rails/RedundantReceiverInWithOptions:
+  Enabled: true
+  StyleGuide: "#railsredundantreceiverinwithoptions"
+Rails/RedundantTravelBack:
+  Enabled: false
+  StyleGuide: "#railsredundanttravelback"
+Rails/ReflectionClassName:
+  Enabled: true
+  StyleGuide: "#railsreflectionclassname"
+Rails/RefuteMethods:
+  Enabled: false
+  StyleGuide: "#railsrefutemethods"
+Rails/RelativeDateConstant:
+  Enabled: true
+  StyleGuide: "#railsrelativedateconstant"
+Rails/RenderInline:
+  Enabled: false
+  StyleGuide: "#railsrenderinline"
+Rails/RenderPlainText:
+  Enabled: false
+  StyleGuide: "#railsrenderplaintext"
+Rails/RequestReferer:
+  Enabled: true
+  StyleGuide: "#railsrequestreferer"
+Rails/RequireDependency:
+  Enabled: false
+  StyleGuide: "#railsrequiredependency"
+Rails/ReversibleMigration:
+  Enabled: true
+  StyleGuide: "#railsreversiblemigration"
+Rails/RootJoinChain:
+  Enabled: false
+  StyleGuide: "#railsrootjoinchain"
+Rails/RootPublicPath:
+  Enabled: false
+  StyleGuide: "#railsrootpublicpath"
+Rails/SafeNavigation:
+  Enabled: true
+  StyleGuide: "#railssafenavigation"
+Rails/SafeNavigationWithBlank:
+  Enabled: true
+  StyleGuide: "#railssafenavigationwithblank"
+Rails/SaveBang:
+  Enabled: false
+  StyleGuide: "#railssavebang"
+Rails/SchemaComment:
+  Enabled: false
+  StyleGuide: "#railsschemacomment"
+Rails/ScopeArgs:
+  Enabled: true
+  StyleGuide: "#railsscopeargs"
+Rails/ShortI18n:
+  Enabled: false
+  StyleGuide: "#railsshorti18n"
+Rails/SkipsModelValidations:
+  Enabled: false
+  StyleGuide: "#railsskipsmodelvalidations"
+Rails/SquishedSQLHeredocs:
+  Enabled: false
+  StyleGuide: "#railssquishedsqlheredocs"
+Rails/StripHeredoc:
+  Enabled: false
+  StyleGuide: "#railsstripheredoc"
+Rails/TableNameAssignment:
+  Enabled: false
+  StyleGuide: "#railstablenameassignment"
+Rails/TimeZone:
+  Enabled: true
+  StyleGuide: "#railstimezone"
+Rails/TimeZoneAssignment:
+  Enabled: false
+  StyleGuide: "#railstimezoneassignment"
+Rails/ToFormattedS:
+  Enabled: false
+  StyleGuide: "#railstoformatteds"
+Rails/TransactionExitStatement:
+  Enabled: false
+  StyleGuide: "#railstransactionexitstatement"
+Rails/UniqBeforePluck:
+  Enabled: true
+  StyleGuide: "#railsuniqbeforepluck"
+Rails/UniqueValidationWithoutIndex:
+  Enabled: true
+  StyleGuide: "#railsuniquevalidationwithoutindex"
+Rails/UnknownEnv:
+  Enabled: true
+  StyleGuide: "#railsunknownenv"
+Rails/UnusedIgnoredColumns:
+  Enabled: false
+  StyleGuide: "#railsunusedignoredcolumns"
+Rails/Validation:
+  Enabled: true
+  StyleGuide: "#railsvalidation"
+Rails/WhereEquals:
+  Enabled: false
+  StyleGuide: "#railswhereequals"
+Rails/WhereExists:
+  Enabled: false
+  StyleGuide: "#railswhereexists"
+Rails/WhereNot:
+  Enabled: false
+  StyleGuide: "#railswherenot"
+Security/CompoundHash:
+  Enabled: false
+  StyleGuide: "#securitycompoundhash"
+Security/Eval:
+  Enabled: true
+  StyleGuide: "#securityeval"
+Security/IoMethods:
+  Enabled: false
+  StyleGuide: "#securityiomethods"
+Security/JSONLoad:
+  Enabled: true
+  StyleGuide: "#securityjsonload"
+Security/MarshalLoad:
+  Enabled: true
+  StyleGuide: "#securitymarshalload"
+Security/Open:
+  Enabled: true
+  StyleGuide: "#securityopen"
+Security/YAMLLoad:
+  Enabled: true
+  StyleGuide: "#securityyamlload"
+Style/AccessModifierDeclarations:
+  Enabled: true
+  StyleGuide: "#styleaccessmodifierdeclarations"
+Style/AccessorGrouping:
+  Enabled: true
+  StyleGuide: "#styleaccessorgrouping"
+Style/Alias:
+  Enabled: true
+  StyleGuide: "#stylealias"
+Style/AndOr:
+  Enabled: true
+  StyleGuide: "#styleandor"
+Style/ArgumentsForwarding:
+  Enabled: false
+  StyleGuide: "#styleargumentsforwarding"
+Style/ArrayCoercion:
+  Enabled: true
+  StyleGuide: "#stylearraycoercion"
+Style/ArrayJoin:
+  Enabled: true
+  StyleGuide: "#stylearrayjoin"
+Style/AsciiComments:
+  Enabled: true
+  StyleGuide: "#styleasciicomments"
+Style/Attr:
+  Enabled: true
+  StyleGuide: "#styleattr"
+Style/AutoResourceCleanup:
+  Enabled: false
+  StyleGuide: "#styleautoresourcecleanup"
+Style/BarePercentLiterals:
+  Enabled: true
+  StyleGuide: "#stylebarepercentliterals"
+Style/BeginBlock:
+  Enabled: true
+  StyleGuide: "#stylebeginblock"
+Style/BisectedAttrAccessor:
+  Enabled: true
+  StyleGuide: "#stylebisectedattraccessor"
+Style/BlockComments:
+  Enabled: true
+  StyleGuide: "#styleblockcomments"
+Style/BlockDelimiters:
+  Enabled: false
+  StyleGuide: "#styleblockdelimiters"
+Style/CaseEquality:
+  Enabled: true
+  StyleGuide: "#stylecaseequality"
+Style/CaseLikeIf:
+  Enabled: true
+  StyleGuide: "#stylecaselikeif"
+Style/CharacterLiteral:
+  Enabled: true
+  StyleGuide: "#stylecharacterliteral"
+Style/ClassAndModuleChildren:
+  Enabled: false
+  StyleGuide: "#styleclassandmodulechildren"
+Style/ClassCheck:
+  Enabled: true
+  StyleGuide: "#styleclasscheck"
+Style/ClassEqualityComparison:
+  Enabled: true
+  StyleGuide: "#styleclassequalitycomparison"
+Style/ClassMethods:
+  Enabled: true
+  StyleGuide: "#styleclassmethods"
+Style/ClassMethodsDefinitions:
+  Enabled: false
+  StyleGuide: "#styleclassmethodsdefinitions"
+Style/ClassVars:
+  Enabled: true
+  StyleGuide: "#styleclassvars"
+Style/CollectionCompact:
+  Enabled: false
+  StyleGuide: "#stylecollectioncompact"
+Style/CollectionMethods:
+  Enabled: false
+  StyleGuide: "#stylecollectionmethods"
+Style/ColonMethodCall:
+  Enabled: true
+  StyleGuide: "#stylecolonmethodcall"
+Style/ColonMethodDefinition:
+  Enabled: true
+  StyleGuide: "#stylecolonmethoddefinition"
+Style/CombinableLoops:
+  Enabled: true
+  StyleGuide: "#stylecombinableloops"
+Style/CommandLiteral:
+  Enabled: true
+  StyleGuide: "#stylecommandliteral"
+Style/CommentAnnotation:
+  Enabled: true
+  StyleGuide: "#stylecommentannotation"
+Style/CommentedKeyword:
+  Enabled: true
+  StyleGuide: "#stylecommentedkeyword"
+Style/ConditionalAssignment:
+  Enabled: true
+  StyleGuide: "#styleconditionalassignment"
+Style/ConstantVisibility:
+  Enabled: false
+  StyleGuide: "#styleconstantvisibility"
+Style/Copyright:
+  Enabled: false
+  StyleGuide: "#stylecopyright"
+Style/DateTime:
+  Enabled: false
+  StyleGuide: "#styledatetime"
+Style/DefWithParentheses:
+  Enabled: true
+  StyleGuide: "#styledefwithparentheses"
+Style/Dir:
+  Enabled: true
+  StyleGuide: "#styledir"
+Style/DisableCopsWithinSourceCodeDirective:
+  Enabled: false
+  StyleGuide: "#styledisablecopswithinsourcecodedirective"
+Style/DocumentDynamicEvalDefinition:
+  Enabled: false
+  StyleGuide: "#styledocumentdynamicevaldefinition"
+Style/Documentation:
+  Enabled: false
+  StyleGuide: "#styledocumentation"
+Style/DocumentationMethod:
+  Enabled: false
+  StyleGuide: "#styledocumentationmethod"
+Style/DoubleCopDisableDirective:
+  Enabled: true
+  StyleGuide: "#styledoublecopdisabledirective"
+Style/DoubleNegation:
+  Enabled: false
+  StyleGuide: "#styledoublenegation"
+Style/EachForSimpleLoop:
+  Enabled: true
+  StyleGuide: "#styleeachforsimpleloop"
+Style/EachWithObject:
+  Enabled: true
+  StyleGuide: "#styleeachwithobject"
+Style/EmptyBlockParameter:
+  Enabled: true
+  StyleGuide: "#styleemptyblockparameter"
+Style/EmptyCaseCondition:
+  Enabled: true
+  StyleGuide: "#styleemptycasecondition"
+Style/EmptyElse:
+  Enabled: true
+  StyleGuide: "#styleemptyelse"
+Style/EmptyHeredoc:
+  Enabled: false
+  StyleGuide: "#styleemptyheredoc"
+Style/EmptyLambdaParameter:
+  Enabled: true
+  StyleGuide: "#styleemptylambdaparameter"
+Style/EmptyLiteral:
+  Enabled: true
+  StyleGuide: "#styleemptyliteral"
+Style/EmptyMethod:
+  Enabled: true
+  StyleGuide: "#styleemptymethod"
+Style/Encoding:
+  Enabled: true
+  StyleGuide: "#styleencoding"
+Style/EndBlock:
+  Enabled: true
+  StyleGuide: "#styleendblock"
+Style/EndlessMethod:
+  Enabled: false
+  StyleGuide: "#styleendlessmethod"
+Style/EnvHome:
+  Enabled: false
+  StyleGuide: "#styleenvhome"
+Style/EvalWithLocation:
+  Enabled: true
+  StyleGuide: "#styleevalwithlocation"
+Style/EvenOdd:
+  Enabled: true
+  StyleGuide: "#styleevenodd"
+Style/ExpandPathArguments:
+  Enabled: true
+  StyleGuide: "#styleexpandpatharguments"
+Style/ExplicitBlockArgument:
+  Enabled: true
+  StyleGuide: "#styleexplicitblockargument"
+Style/ExponentialNotation:
+  Enabled: true
+  StyleGuide: "#styleexponentialnotation"
+Style/FetchEnvVar:
+  Enabled: false
+  StyleGuide: "#stylefetchenvvar"
+Style/FileRead:
+  Enabled: false
+  StyleGuide: "#stylefileread"
+Style/FileWrite:
+  Enabled: false
+  StyleGuide: "#stylefilewrite"
+Style/FloatDivision:
+  Enabled: true
+  StyleGuide: "#stylefloatdivision"
+Style/For:
+  Enabled: true
+  StyleGuide: "#stylefor"
+Style/FormatString:
+  Enabled: true
+  StyleGuide: "#styleformatstring"
+Style/FormatStringToken:
+  Enabled: true
+  StyleGuide: "#styleformatstringtoken"
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  StyleGuide: "#stylefrozenstringliteralcomment"
+Style/GlobalStdStream:
+  Enabled: true
+  StyleGuide: "#styleglobalstdstream"
+Style/GlobalVars:
+  Enabled: true
+  StyleGuide: "#styleglobalvars"
+Style/GuardClause:
+  Enabled: false
+  StyleGuide: "#styleguardclause"
+Style/HashAsLastArrayItem:
+  Enabled: true
+  StyleGuide: "#stylehashaslastarrayitem"
+Style/HashConversion:
+  Enabled: false
+  StyleGuide: "#stylehashconversion"
+Style/HashEachMethods:
+  Enabled: true
+  StyleGuide: "#stylehasheachmethods"
+Style/HashExcept:
+  Enabled: false
+  StyleGuide: "#stylehashexcept"
+Style/HashLikeCase:
+  Enabled: true
+  StyleGuide: "#stylehashlikecase"
+Style/HashSyntax:
+  Enabled: false
+  StyleGuide: "#stylehashsyntax"
+Style/HashTransformKeys:
+  Enabled: true
+  StyleGuide: "#stylehashtransformkeys"
+Style/HashTransformValues:
+  Enabled: true
+  StyleGuide: "#stylehashtransformvalues"
+Style/IdenticalConditionalBranches:
+  Enabled: true
+  StyleGuide: "#styleidenticalconditionalbranches"
+Style/IfInsideElse:
+  Enabled: true
+  StyleGuide: "#styleifinsideelse"
+Style/IfUnlessModifier:
+  Enabled: false
+  StyleGuide: "#styleifunlessmodifier"
+Style/IfUnlessModifierOfIfUnless:
+  Enabled: true
+  StyleGuide: "#styleifunlessmodifierofifunless"
+Style/IfWithBooleanLiteralBranches:
+  Enabled: false
+  StyleGuide: "#styleifwithbooleanliteralbranches"
+Style/IfWithSemicolon:
+  Enabled: true
+  StyleGuide: "#styleifwithsemicolon"
+Style/ImplicitRuntimeError:
+  Enabled: false
+  StyleGuide: "#styleimplicitruntimeerror"
+Style/InPatternThen:
+  Enabled: false
+  StyleGuide: "#styleinpatternthen"
+Style/InfiniteLoop:
+  Enabled: true
+  StyleGuide: "#styleinfiniteloop"
+Style/InlineComment:
+  Enabled: false
+  StyleGuide: "#styleinlinecomment"
+Style/InverseMethods:
+  Enabled: true
+  StyleGuide: "#styleinversemethods"
+Style/IpAddresses:
+  Enabled: false
+  StyleGuide: "#styleipaddresses"
+Style/KeywordParametersOrder:
+  Enabled: true
+  StyleGuide: "#stylekeywordparametersorder"
+Style/Lambda:
+  Enabled: true
+  StyleGuide: "#stylelambda"
+Style/LambdaCall:
+  Enabled: true
+  StyleGuide: "#stylelambdacall"
+Style/LineEndConcatenation:
+  Enabled: true
+  StyleGuide: "#stylelineendconcatenation"
+Style/MagicCommentFormat:
+  Enabled: false
+  StyleGuide: "#stylemagiccommentformat"
+Style/MapCompactWithConditionalBlock:
+  Enabled: false
+  StyleGuide: "#stylemapcompactwithconditionalblock"
+Style/MapToHash:
+  Enabled: false
+  StyleGuide: "#stylemaptohash"
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+  StyleGuide: "#stylemethodcallwithargsparentheses"
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: true
+  StyleGuide: "#stylemethodcallwithoutargsparentheses"
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+  StyleGuide: "#stylemethodcalledondoendblock"
+Style/MethodDefParentheses:
+  Enabled: true
+  StyleGuide: "#stylemethoddefparentheses"
+Style/MinMax:
+  Enabled: true
+  StyleGuide: "#styleminmax"
+Style/MissingElse:
+  Enabled: false
+  StyleGuide: "#stylemissingelse"
+Style/MissingRespondToMissing:
+  Enabled: true
+  StyleGuide: "#stylemissingrespondtomissing"
+Style/MixinGrouping:
+  Enabled: true
+  StyleGuide: "#stylemixingrouping"
+Style/MixinUsage:
+  Enabled: true
+  StyleGuide: "#stylemixinusage"
+Style/ModuleFunction:
+  Enabled: true
+  StyleGuide: "#stylemodulefunction"
+Style/MultilineBlockChain:
+  Enabled: true
+  StyleGuide: "#stylemultilineblockchain"
+Style/MultilineIfModifier:
+  Enabled: true
+  StyleGuide: "#stylemultilineifmodifier"
+Style/MultilineIfThen:
+  Enabled: true
+  StyleGuide: "#stylemultilineifthen"
+Style/MultilineInPatternThen:
+  Enabled: false
+  StyleGuide: "#stylemultilineinpatternthen"
+Style/MultilineMemoization:
+  Enabled: true
+  StyleGuide: "#stylemultilinememoization"
+Style/MultilineMethodSignature:
+  Enabled: true
+  StyleGuide: "#stylemultilinemethodsignature"
+Style/MultilineTernaryOperator:
+  Enabled: true
+  StyleGuide: "#stylemultilineternaryoperator"
+Style/MultilineWhenThen:
+  Enabled: true
+  StyleGuide: "#stylemultilinewhenthen"
+Style/MultipleComparison:
+  Enabled: true
+  StyleGuide: "#stylemultiplecomparison"
+Style/MutableConstant:
+  Enabled: true
+  StyleGuide: "#stylemutableconstant"
+Style/NegatedIf:
+  Enabled: true
+  StyleGuide: "#stylenegatedif"
+Style/NegatedIfElseCondition:
+  Enabled: false
+  StyleGuide: "#stylenegatedifelsecondition"
+Style/NegatedUnless:
+  Enabled: true
+  StyleGuide: "#stylenegatedunless"
+Style/NegatedWhile:
+  Enabled: true
+  StyleGuide: "#stylenegatedwhile"
+Style/NestedFileDirname:
+  Enabled: false
+  StyleGuide: "#stylenestedfiledirname"
+Style/NestedModifier:
+  Enabled: true
+  StyleGuide: "#stylenestedmodifier"
+Style/NestedParenthesizedCalls:
+  Enabled: true
+  StyleGuide: "#stylenestedparenthesizedcalls"
+Style/NestedTernaryOperator:
+  Enabled: true
+  StyleGuide: "#stylenestedternaryoperator"
+Style/Next:
+  Enabled: true
+  StyleGuide: "#stylenext"
+Style/NilComparison:
+  Enabled: true
+  StyleGuide: "#stylenilcomparison"
+Style/NilLambda:
+  Enabled: false
+  StyleGuide: "#stylenillambda"
+Style/NonNilCheck:
+  Enabled: true
+  StyleGuide: "#stylenonnilcheck"
+Style/Not:
+  Enabled: true
+  StyleGuide: "#stylenot"
+Style/NumberedParameters:
+  Enabled: false
+  StyleGuide: "#stylenumberedparameters"
+Style/NumberedParametersLimit:
+  Enabled: false
+  StyleGuide: "#stylenumberedparameterslimit"
+Style/NumericLiteralPrefix:
+  Enabled: true
+  StyleGuide: "#stylenumericliteralprefix"
+Style/NumericLiterals:
+  Enabled: false
+  StyleGuide: "#stylenumericliterals"
+Style/NumericPredicate:
+  Enabled: false
+  StyleGuide: "#stylenumericpredicate"
+Style/ObjectThen:
+  Enabled: false
+  StyleGuide: "#styleobjectthen"
+Style/OneLineConditional:
+  Enabled: true
+  StyleGuide: "#styleonelineconditional"
+Style/OpenStructUse:
+  Enabled: false
+  StyleGuide: "#styleopenstructuse"
+Style/OptionHash:
+  Enabled: false
+  StyleGuide: "#styleoptionhash"
+Style/OptionalArguments:
+  Enabled: true
+  StyleGuide: "#styleoptionalarguments"
+Style/OptionalBooleanParameter:
+  Enabled: true
+  StyleGuide: "#styleoptionalbooleanparameter"
+Style/OrAssignment:
+  Enabled: true
+  StyleGuide: "#styleorassignment"
+Style/ParallelAssignment:
+  Enabled: true
+  StyleGuide: "#styleparallelassignment"
+Style/ParenthesesAroundCondition:
+  Enabled: true
+  StyleGuide: "#styleparenthesesaroundcondition"
+Style/PercentLiteralDelimiters:
+  Enabled: true
+  StyleGuide: "#stylepercentliteraldelimiters"
+Style/PercentQLiterals:
+  Enabled: true
+  StyleGuide: "#stylepercentqliterals"
+Style/PerlBackrefs:
+  Enabled: true
+  StyleGuide: "#styleperlbackrefs"
+Style/PreferredHashMethods:
+  Enabled: true
+  StyleGuide: "#stylepreferredhashmethods"
+Style/Proc:
+  Enabled: true
+  StyleGuide: "#styleproc"
+Style/QuotedSymbols:
+  Enabled: false
+  StyleGuide: "#stylequotedsymbols"
+Style/RaiseArgs:
+  Enabled: false
+  StyleGuide: "#styleraiseargs"
+Style/RandomWithOffset:
+  Enabled: true
+  StyleGuide: "#stylerandomwithoffset"
+Style/RedundantArgument:
+  Enabled: false
+  StyleGuide: "#styleredundantargument"
+Style/RedundantAssignment:
+  Enabled: true
+  StyleGuide: "#styleredundantassignment"
+Style/RedundantBegin:
+  Enabled: true
+  StyleGuide: "#styleredundantbegin"
+Style/RedundantCapitalW:
+  Enabled: true
+  StyleGuide: "#styleredundantcapitalw"
+Style/RedundantCondition:
+  Enabled: true
+  StyleGuide: "#styleredundantcondition"
+Style/RedundantConditional:
+  Enabled: true
+  StyleGuide: "#styleredundantconditional"
+Style/RedundantException:
+  Enabled: true
+  StyleGuide: "#styleredundantexception"
+Style/RedundantFetchBlock:
+  Enabled: true
+  StyleGuide: "#styleredundantfetchblock"
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+  StyleGuide: "#styleredundantfileextensioninrequire"
+Style/RedundantFreeze:
+  Enabled: true
+  StyleGuide: "#styleredundantfreeze"
+Style/RedundantInitialize:
+  Enabled: false
+  StyleGuide: "#styleredundantinitialize"
+Style/RedundantInterpolation:
+  Enabled: true
+  StyleGuide: "#styleredundantinterpolation"
+Style/RedundantParentheses:
+  Enabled: false
+  StyleGuide: "#styleredundantparentheses"
+Style/RedundantPercentQ:
+  Enabled: true
+  StyleGuide: "#styleredundantpercentq"
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+  StyleGuide: "#styleredundantregexpcharacterclass"
+Style/RedundantRegexpEscape:
+  Enabled: true
+  StyleGuide: "#styleredundantregexpescape"
+Style/RedundantReturn:
+  Enabled: true
+  StyleGuide: "#styleredundantreturn"
+Style/RedundantSelf:
+  Enabled: true
+  StyleGuide: "#styleredundantself"
+Style/RedundantSelfAssignment:
+  Enabled: true
+  StyleGuide: "#styleredundantselfassignment"
+Style/RedundantSelfAssignmentBranch:
+  Enabled: false
+  StyleGuide: "#styleredundantselfassignmentbranch"
+Style/RedundantSort:
+  Enabled: true
+  StyleGuide: "#styleredundantsort"
+Style/RedundantSortBy:
+  Enabled: true
+  StyleGuide: "#styleredundantsortby"
+Style/RegexpLiteral:
+  Enabled: true
+  StyleGuide: "#styleregexpliteral"
+Style/RescueModifier:
+  Enabled: true
+  StyleGuide: "#stylerescuemodifier"
+Style/RescueStandardError:
+  Enabled: true
+  StyleGuide: "#stylerescuestandarderror"
+Style/ReturnNil:
+  Enabled: false
+  StyleGuide: "#stylereturnnil"
+Style/SafeNavigation:
+  Enabled: true
+  StyleGuide: "#stylesafenavigation"
+Style/Sample:
+  Enabled: true
+  StyleGuide: "#stylesample"
+Style/SelectByRegexp:
+  Enabled: false
+  StyleGuide: "#styleselectbyregexp"
+Style/SelfAssignment:
+  Enabled: true
+  StyleGuide: "#styleselfassignment"
+Style/Semicolon:
+  Enabled: true
+  StyleGuide: "#stylesemicolon"
+Style/Send:
+  Enabled: false
+  StyleGuide: "#stylesend"
+Style/SignalException:
+  EnforcedStyle: only_raise
+  StyleGuide: "#stylesignalexception"
+Style/SingleArgumentDig:
+  Enabled: true
+  StyleGuide: "#stylesingleargumentdig"
+Style/SingleLineBlockParams:
+  Enabled: true
+  StyleGuide: "#stylesinglelineblockparams"
+Style/SingleLineMethods:
+  Enabled: true
+  StyleGuide: "#stylesinglelinemethods"
+Style/SlicingWithRange:
+  Enabled: true
+  StyleGuide: "#styleslicingwithrange"
+Style/SoleNestedConditional:
+  Enabled: true
+  StyleGuide: "#stylesolenestedconditional"
+Style/SpecialGlobalVars:
+  Enabled: true
+  StyleGuide: "#stylespecialglobalvars"
+Style/StabbyLambdaParentheses:
+  Enabled: true
+  StyleGuide: "#stylestabbylambdaparentheses"
+Style/StaticClass:
+  Enabled: false
+  StyleGuide: "#stylestaticclass"
+Style/StderrPuts:
+  Enabled: true
+  StyleGuide: "#stylestderrputs"
+Style/StringChars:
+  Enabled: false
+  StyleGuide: "#stylestringchars"
+Style/StringConcatenation:
+  Enabled: true
+  Mode: conservative
+  StyleGuide: "#stylestringconcatenation"
+Style/StringHashKeys:
+  Enabled: false
+  StyleGuide: "#stylestringhashkeys"
+Style/StringLiterals:
+  Enabled: false
+  StyleGuide: "#stylestringliterals"
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  StyleGuide: "#stylestringliteralsininterpolation"
+Style/StringMethods:
+  Enabled: false
+  StyleGuide: "#stylestringmethods"
+Style/Strip:
+  Enabled: true
+  StyleGuide: "#stylestrip"
+Style/StructInheritance:
+  Enabled: true
+  StyleGuide: "#stylestructinheritance"
+Style/SwapValues:
+  Enabled: false
+  StyleGuide: "#styleswapvalues"
+Style/SymbolArray:
+  Enabled: false
+  StyleGuide: "#stylesymbolarray"
+Style/SymbolLiteral:
+  Enabled: true
+  StyleGuide: "#stylesymbolliteral"
+Style/SymbolProc:
+  Enabled: true
+  StyleGuide: "#stylesymbolproc"
+Style/TernaryParentheses:
+  Enabled: true
+  StyleGuide: "#styleternaryparentheses"
+Style/TopLevelMethodDefinition:
+  Enabled: false
+  StyleGuide: "#styletoplevelmethoddefinition"
+Style/TrailingBodyOnClass:
+  Enabled: true
+  StyleGuide: "#styletrailingbodyonclass"
+Style/TrailingBodyOnMethodDefinition:
+  Enabled: true
+  StyleGuide: "#styletrailingbodyonmethoddefinition"
+Style/TrailingBodyOnModule:
+  Enabled: true
+  StyleGuide: "#styletrailingbodyonmodule"
+Style/TrailingCommaInArguments:
+  Enabled: false
+  StyleGuide: "#styletrailingcommainarguments"
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+  StyleGuide: "#styletrailingcommainarrayliteral"
+Style/TrailingCommaInBlockArgs:
+  Enabled: false
+  StyleGuide: "#styletrailingcommainblockargs"
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+  StyleGuide: "#styletrailingcommainhashliteral"
+Style/TrailingMethodEndStatement:
+  Enabled: true
+  StyleGuide: "#styletrailingmethodendstatement"
+Style/TrailingUnderscoreVariable:
+  Enabled: true
+  StyleGuide: "#styletrailingunderscorevariable"
+Style/TrivialAccessors:
+  Enabled: true
+  StyleGuide: "#styletrivialaccessors"
+Style/UnlessElse:
+  Enabled: true
+  StyleGuide: "#styleunlesselse"
+Style/UnlessLogicalOperators:
+  Enabled: false
+  StyleGuide: "#styleunlesslogicaloperators"
+Style/UnpackFirst:
+  Enabled: true
+  StyleGuide: "#styleunpackfirst"
+Style/VariableInterpolation:
+  Enabled: true
+  StyleGuide: "#stylevariableinterpolation"
+Style/WhenThen:
+  Enabled: true
+  StyleGuide: "#stylewhenthen"
+Style/WhileUntilDo:
+  Enabled: true
+  StyleGuide: "#stylewhileuntildo"
+Style/WhileUntilModifier:
+  Enabled: true
+  StyleGuide: "#stylewhileuntilmodifier"
+Style/WordArray:
+  Enabled: false
+  StyleGuide: "#stylewordarray"
+Style/YodaCondition:
+  Enabled: true
+  StyleGuide: "#styleyodacondition"
+Style/ZeroLengthPredicate:
+  Enabled: true
+  StyleGuide: "#stylezerolengthpredicate"

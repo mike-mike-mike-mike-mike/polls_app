@@ -1,0 +1,50 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+h1 {
+    text-align: center;
+}
+
+.main_content {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.image_card {
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.image_display {
+    margin: 0 auto;
+    max-width: 400px;
+    border: 5px solid #6c757d;
+    border-radius: 5px;
+}
+
+.center_content {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.tags_field {
+    font-size: 11px;
+}
+
+.input {
+    margin: 10px auto
+}
+
+.url_input {
+    width: 75%;
+    min-width: 400px;
+    font-size: small;
+}
+
+.tag_input {
+    width: 50%;
+    min-width: 400px;
+    font-size: small;
+}

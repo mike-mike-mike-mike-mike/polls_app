@@ -1,0 +1,44 @@
+default: &default
+  adapter: mysql2
+  collation: utf8_general_ci
+  encoding: utf8
+  hijack: {}
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+  username: root
+  password:
+  port:
+
+default_tmp: &default_tmp
+  adapter: mysql2
+  collation: utf8_general_ci
+  encoding: utf8
+  hijack:
+    tmp: true
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+  username: root
+  password:
+  port:
+
+development:
+  primary:
+    <<: *default
+    database: poll_app_development
+  tmp:
+    <<: *default_tmp
+    database: poll_app_tmp_development
+
+test:
+  primary:
+    <<: *default
+    database: <%= [ 'poll_app_test', ENV['TEST_ENV_NAME'], ENV['TEST_ENV_NUMBER'] ].compact.join('_') %>
+  tmp:
+    <<: *default_tmp
+    database: <%= [ 'poll_app_tmp_test', ENV['TEST_ENV_NAME'], ENV['TEST_ENV_NUMBER'] ].compact.join('_') %>
+
+production:
+  primary:
+    <<: *default
+    database: poll_app_production
+  tmp:
+    <<: *default_tmp
+    database: poll_app_tmp_production

@@ -1,0 +1,92 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'English'
+
+valid_services = %i[spring shakapacker default]
+service = ARGV.shift.to_sym
+raise "Invalid service given: #{service}. Must be one of #{valid_services}" unless valid_services.include?(service)
+
+def step_completed?(step, directory = "/opt/cache")
+  File.exist?("#{directory}/#{step}.complete").tap do |completed|
+    puts "Step `#{step}` already completed" if completed
+  end
+end
+
+def step_complete!(step, directory = "/opt/cache")
+  system!("mkdir -p #{directory} && touch #{directory}/#{step}.complete")
+end
+
+def clear_step!(step, directory = "/opt/cache")
+  system!("rm -f #{directory}/#{step}.complete")
+end
+
+def system!(*args)
+  system(*args)
+
+  return if $CHILD_STATUS.success?
+
+  puts "Command failed: `#{args.join(' ')}`"
+  exit $CHILD_STATUS.exitstatus
+end
+
+def system_parallel!(commands)
+  commands.map do |command|
+    Thread.new do
+      system!(command)
+    end
+  end.each(&:join)
+end
+
+def setup_spring
+  rm_spring_tmp = "rm -rf #{ENV['SPRING_TMP_PATH']}/*"
+  bundle_install = "rm -rf .bundle/* && bundle config --local path vendor/bundle && bundle install"
+  db_migrations = "bin/spring rails db:migrate || bin/spring rails db:create db:migrate db:seed db:fixtures:load"
+
+  system_parallel!([rm_spring_tmp])
+
+  require 'digest'
+  gemfile_lock_hash = Digest::MD5.hexdigest(File.read('Gemfile.lock'))
+
+  cache_key = "bundle_install_#{gemfile_lock_hash}"
+  if step_completed?(cache_key)
+    puts "Skipping bundle install, cache key: #{cache_key}"
+  else
+    puts "Running bundle install, cache key: #{cache_key}"
+    system!(bundle_install)
+    step_complete!(cache_key)
+  end
+
+  system!(db_migrations)
+  step_complete!(:db_migrations)
+  at_exit do
+    clear_step!(:db_migrations)
+  end
+end
+
+def setup_shakapacker
+  require 'digest'
+  yarn_lock_hash = Digest::MD5.hexdigest(File.read('yarn.lock'))
+
+  cache_key = "yarn_install_#{yarn_lock_hash}"
+  if step_completed?(cache_key)
+    puts "Skipping yarn install, cache key: #{cache_key}"
+    return
+  end
+
+  puts "Running yarn install, cache key: #{cache_key}"
+  system!("yarn install")
+  step_complete!(cache_key)
+end
+
+Dir.chdir('/home/code')
+case service
+when :spring
+  setup_spring
+when :shakapacker
+  setup_shakapacker
+end
+
+pid = spawn(ARGV.join(' '), out: STDOUT, err: STDERR)
+Process.wait(pid)
+exit $CHILD_STATUS.exitstatus

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Polls App</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+
+<body>
+  <div class="container py-4" style="max-width: 500px;">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <div class="mx-auto w-50 m-5" id="feedback-root" />
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <link rel="stylesheet" media="screen" href="https://publicqa.cdn.appfolio.com/public/icons/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" media="screen" href="https://publicqa.cdn.appfolio.com/public/icons/font-awesome/5.14.0/css/v4-shims.min.css">
+  <link href="https://publicdevelopment.cdn.appfolio.com/bootstrap-coastline/6.3.2/bootstrap-coastline.min.css" rel="stylesheet">
+</body>
+
+</html>
